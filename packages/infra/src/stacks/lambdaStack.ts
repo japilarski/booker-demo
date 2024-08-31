@@ -8,7 +8,7 @@ import { Construct } from 'constructs';
 import { join } from 'path';
 
 interface LambdaStackProps extends StackProps {
-  spacesTable: ITable;
+  appointmentTable: ITable;
 }
 
 export class LambdaStack extends Stack {
@@ -17,29 +17,23 @@ export class LambdaStack extends Stack {
   constructor(scope: Construct, id: string, props: LambdaStackProps) {
     super(scope, id, props);
 
-    const spacesLambda = new NodejsFunction(this, 'SpacesLambda', {
-      runtime: Runtime.NODEJS_18_X,
+    const appointmentLambda = new NodejsFunction(this, 'appointmentLambda', {
+      runtime: Runtime.NODEJS_20_X,
       handler: 'handler',
-      entry: join(__dirname, '..', '..', 'services', 'spaces', 'handler.ts'),
+      entry: join(__dirname, '..', '..', '..', 'lambda-handlers', 'src', 'appointmentHandler.ts'),
       environment: {
-        TABLE_NAME: props.spacesTable.tableName,
+        APPOINTMENT_TABLE_NAME: props.appointmentTable.tableName,
       },
     });
 
-    spacesLambda.addToRolePolicy(
+    appointmentLambda.addToRolePolicy(
       new PolicyStatement({
         effect: Effect.ALLOW,
-        resources: [props.spacesTable.tableArn],
-        actions: [
-          'dynamodb:PutItem',
-          'dynamodb:Scan',
-          'dynamodb:GetItem',
-          'dynamodb:UpdateItem',
-          'dynamodb:DeleteItem',
-        ],
+        resources: [props.appointmentTable.tableArn],
+        actions: ['dynamodb:PutItem', 'dynamodb:Scan', 'dynamodb:GetItem', 'dynamodb:DeleteItem'],
       })
     );
 
-    this.spacesLambdaIntegration = new LambdaIntegration(spacesLambda);
+    this.spacesLambdaIntegration = new LambdaIntegration(appointmentLambda);
   }
 }

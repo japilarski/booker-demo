@@ -6,13 +6,10 @@
     "outDir": "dist",
     "sourceMap": true,
     "strict": true,
-    "checkJs": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },
-  "include": [
-    "packages/**/*",
-  ]
+  "include": ["packages/**/*", "eslint.config.mjs"]
 }

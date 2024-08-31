@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "demo of booker application",
   "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "test"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "prettier . --write & eslint . ",
+    "synth:all": "cdk synth --all",
+    "deploy:all": "cdk deploy --all"
   },
   "author": "",
   "license": "ISC",
@@ -18,7 +22,9 @@
     "typescript-eslint": "^8.3.0"
   },
   "workspaces": [
-    "packages/*"
+    "packages/backend",
+    "packages/infra",
+    "packages/utils"
   ],
   "dependencies": {
     "eslint-config-prettier": "^9.1.0",

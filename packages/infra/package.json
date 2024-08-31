@@ -1,0 +1,18 @@
+{
+  "name": "@booker-demo/infra",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "private": true,
+  "scripts": {
+    "test:test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "cdk deploy --all"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@booker-demo/utils": "^1.0.0",
+    "aws-cdk-lib": "^2.154.1",
+    "constructs": "^10.3.0"
+  }
+}
