@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "src/index.ts",
   "private": true,
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,6 +18,8 @@
     "@types/aws-lambda": "^8.10.145",
     "@types/uuid": "^10.0.0",
     "aws-lambda": "^1.0.7",
+    "dotenv": "^16.4.5",
+    "ts-node": "^10.9.2",
     "uuid": "^10.0.0"
   }
 }

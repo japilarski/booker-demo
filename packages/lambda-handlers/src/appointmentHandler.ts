@@ -4,7 +4,6 @@ import { JsonError } from '@booker-demo/utils';
 import { MissingFieldError, AppointmentController, RequiredFieldError, NotFountError } from '@booker-demo/backend';
 
 export async function handler(event: APIGatewayProxyEvent, context: Context): Promise<APIGatewayProxyResult> {
-  console.log('dzialam')
   const ddbClient = new DynamoDBClient({});
   const appointmentController = new AppointmentController(ddbClient);
 

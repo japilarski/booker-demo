@@ -11,7 +11,7 @@ export class AppointmentController {
   public async switch(event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> {
     switch (event.httpMethod) {
       case 'GET':
-        if (!event.queryStringParameters) {
+        if (!event?.queryStringParameters) {
           return this.appointmentService.getAll();
         }
 
