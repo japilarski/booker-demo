@@ -7,8 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "prettier . --write & eslint . ",
-    "synth:all": "cdk synth --all",
-    "deploy:all": "cdk deploy --all"
+    "synth": "cdk synth --all",
+    "deploy": "cdk deploy --all"
   },
   "author": "",
   "license": "ISC",

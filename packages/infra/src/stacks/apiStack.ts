@@ -3,7 +3,7 @@ import { LambdaIntegration, RestApi } from 'aws-cdk-lib/aws-apigateway';
 import { Construct } from 'constructs';
 
 interface ApiStackProps extends StackProps {
-  spacesLambdaIntegration: LambdaIntegration;
+  appointmentLambdaIntegration: LambdaIntegration;
 }
 
 export class ApiStack extends Stack {
@@ -12,9 +12,9 @@ export class ApiStack extends Stack {
 
     const bookerApi = new RestApi(this, 'BookerApi');
     const appointmentResource = bookerApi.root.addResource('appointment');
-    appointmentResource.addMethod('GET', props.spacesLambdaIntegration);
-    appointmentResource.addMethod('POST', props.spacesLambdaIntegration);
-    appointmentResource.addMethod('PUT', props.spacesLambdaIntegration);
-    appointmentResource.addMethod('DELETE', props.spacesLambdaIntegration);
+    appointmentResource.addMethod('GET', props.appointmentLambdaIntegration);
+    appointmentResource.addMethod('POST', props.appointmentLambdaIntegration);
+    appointmentResource.addMethod('PUT', props.appointmentLambdaIntegration);
+    appointmentResource.addMethod('DELETE', props.appointmentLambdaIntegration);
   }
 }
