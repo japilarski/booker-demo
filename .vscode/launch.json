@@ -4,19 +4,16 @@
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
-      {
-          "type": "node",
-          "request": "launch",
-          "name": "Debug local file",
-          "runtimeArgs": [
-              "--import=tsx"
-          ],
-          "args": [
-              "${relativeFile}"
-          ],
-          "env": {
-              "AWS_REGION": "eu-west-1"
-          }
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug local file",
+      "runtimeArgs": ["--import=tsx"],
+      "args": ["${relativeFile}"],
+      "env": {
+        "AWS_REGION": "eu-west-1",
+        "APPOINTMENT_TABLE_NAME": ""
       }
+    }
   ]
 }

@@ -3,10 +3,11 @@ import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
 import { AppointmentService } from '../service/appointmentService';
 
 export class AppointmentController {
-  constructor(
-    private ddbClient: DynamoDBClient,
-    private appointmentService: AppointmentService = new AppointmentService(this.ddbClient)
-  ) {}
+  private appointmentService: AppointmentService;
+
+  constructor(private ddbClient: DynamoDBClient) {
+    this.appointmentService = new AppointmentService(this.ddbClient);
+  }
 
   public async switch(event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> {
     switch (event.httpMethod) {
@@ -14,12 +15,14 @@ export class AppointmentController {
         if (!event?.queryStringParameters) {
           return this.appointmentService.getAll();
         }
-
         return await this.appointmentService.get(event);
+
       case 'POST':
         return await this.appointmentService.post(event);
+
       case 'DELETE':
         return await this.appointmentService.delete(event);
+
       default:
         break;
     }

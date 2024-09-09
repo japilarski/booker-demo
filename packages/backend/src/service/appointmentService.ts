@@ -7,7 +7,7 @@ import {
 } from '@aws-sdk/client-dynamodb';
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
 import { marshall, unmarshall } from '@aws-sdk/util-dynamodb';
-import { createRandomId, parseJSON } from '@booker-demo/utils';
+import { createRandomId, parseJSON, isEmpty } from '@booker-demo/utils';
 import { RequiredFieldError } from '../exceptions/requiredFieldError';
 import { NotFountError } from '../exceptions/notFountError';
 import { AppointmentValidator } from '../validators/appointmentValidator';
@@ -34,7 +34,7 @@ export class AppointmentService {
       })
     );
 
-    if (!getItemResponse.Item) {
+    if (!getItemResponse.Item || isEmpty(getItemResponse.Item)) {
       throw new NotFountError('Appointment');
     }
 
@@ -51,7 +51,7 @@ export class AppointmentService {
       })
     );
 
-    if (!scanResponse.Items) {
+    if (!scanResponse.Items || isEmpty(scanResponse.Items)) {
       throw new NotFountError('Appointments');
     }
 
@@ -62,7 +62,7 @@ export class AppointmentService {
   }
 
   public async post(event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> {
-    if (!event.body) {
+    if (!event.body || isEmpty(event.body)) {
       throw new RequiredFieldError('appointment details');
     }
 

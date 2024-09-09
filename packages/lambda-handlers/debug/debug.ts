@@ -1,9 +1,10 @@
-import {handler} from '../src/appointmentHandler'
+import { handler } from '../src/appointmentHandler';
 
-const response = handler({
+const response = handler(
+  {
     httpMethod: 'GET',
-
-  } as any, {} as any
+  } as any,
+  {} as any
 );
 
-console.log(response)
+console.log(response);

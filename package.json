@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "prettier . --write & eslint . ",
+    "lint": "prettier . --write & npx eslint . ",
     "synth": "cdk synth --all --profile moje",
     "deploy": "cdk deploy --all --profile moje"
   },
@@ -16,7 +16,7 @@
     "@eslint/js": "^9.9.1",
     "@types/eslint__js": "^8.42.3",
     "@types/node": "^22.5.1",
-    "eslint": "^9.9.1",
+    "eslint": "^9.10.0",
     "lerna": "^8.1.8",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4",

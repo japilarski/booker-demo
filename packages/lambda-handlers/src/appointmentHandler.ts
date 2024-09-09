@@ -5,6 +5,13 @@ import { MissingFieldError, AppointmentController, RequiredFieldError, NotFountE
 
 export async function handler(event: APIGatewayProxyEvent, context: Context): Promise<APIGatewayProxyResult> {
   const ddbClient = new DynamoDBClient({});
+  if (!ddbClient) {
+    return {
+      statusCode: 500,
+      body: 'DynamoDB client Error',
+    };
+  }
+
   const appointmentController = new AppointmentController(ddbClient);
 
   try {
@@ -25,7 +32,7 @@ export async function handler(event: APIGatewayProxyEvent, context: Context): Pr
     if (error instanceof Error) {
       return {
         statusCode: 400,
-        body: error.message,
+        body: 'Unexpected AppointmentHandler error.  ' + error.message,
       };
     }
   }

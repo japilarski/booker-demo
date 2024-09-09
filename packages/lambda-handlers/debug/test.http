@@ -1,0 +1,30 @@
+@url = https://xmd3j6v9lb.execute-api.eu-west-1.amazonaws.com/prod/
+# @token =
+
+GET {{url}}/appointment
+# Authorization: {{token}}
+###
+
+POST {{url}}/appointment
+content-type: application/json
+
+{
+   "clientId": "clientId",
+   "providerId": "providerId",
+   "serviceName": "serviceName",
+   "dateTime": "dateTime",
+   "duration": "duration"
+}
+###
+
+GET {{url}}/appointment?id=e323678c-b37e-4346-970a-af8ba8efe077
+# Authorization: {{token}}
+###
+
+GET {{url}}/appointment
+# Authorization: {{token}}
+###
+
+DELETE {{url}}/appointment?id=e323678c-b37e-4346-970a-af8ba8efe077
+# Authorization: {{token}}
+###
