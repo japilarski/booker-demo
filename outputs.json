@@ -1,0 +1,20 @@
+{
+  "DataStack": {
+    "ExportsOutputRefAppointmentTable693EEA546A0764E1": "AppointmentTable-064d3b0e91e7",
+    "ExportsOutputFnGetAttAppointmentTable693EEA54ArnA4F475EF": "arn:aws:dynamodb:eu-west-1:590183812834:table/AppointmentTable-064d3b0e91e7"
+  },
+  "AuthStack": {
+    "ExportsOutputFnGetAttBookerUserPool63D484AFArn03013022": "arn:aws:cognito-idp:eu-west-1:590183812834:userpool/eu-west-1_2FPM7tyx4",
+    "BookerUserPoolId": "eu-west-1_2FPM7tyx4",
+    "ExportsOutputRefBookerUserPoolBookerUserPoolClient82D083D91CC19F10": "2v3ju6a9rgbnpsq31aioq00v9t",
+    "BookerUserPoolClientId": "2v3ju6a9rgbnpsq31aioq00v9t"
+  },
+  "LambdaStack": {
+    "ExportsOutputFnGetAttappointmentLambdaC700FEB8ArnB2F29B9C": "arn:aws:lambda:eu-west-1:590183812834:function:LambdaStack-appointmentLambdaC700FEB8-ls6V2FmEqgdw",
+    "ExportsOutputFnGetAttsignInLambda208BA602ArnA026B32F": "arn:aws:lambda:eu-west-1:590183812834:function:LambdaStack-signInLambda208BA602-jSSREuNkXGYJ",
+    "ExportsOutputFnGetAttlogInLambda231AB26BArnBC050900": "arn:aws:lambda:eu-west-1:590183812834:function:LambdaStack-logInLambda231AB26B-rgeO3xjn9fqr"
+  },
+  "ApiStack": {
+    "BookerApiEndpoint887D49B7": "https://xmd3j6v9lb.execute-api.eu-west-1.amazonaws.com/prod/"
+  }
+}

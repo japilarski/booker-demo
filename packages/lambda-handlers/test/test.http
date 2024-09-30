@@ -28,3 +28,24 @@ GET {{url}}/appointment
 DELETE {{url}}/appointment?id=e323678c-b37e-4346-970a-af8ba8efe077
 # Authorization: {{token}}
 ###
+
+
+
+
+POST {{url}}/sign-up
+content-type: application/json
+
+{  
+   "email": "kpilarski21@gmail.com",
+   "password": "Pa$$w0rd"
+}
+###
+
+POST {{url}}/log-in
+content-type: application/json
+
+{  
+   "email": "kpilarski21@gmail.com",
+   "password": "Pa$$w0rd"
+}
+###

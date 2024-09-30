@@ -6,9 +6,10 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "prettier . --write & npx eslint . ",
+    "clean": "prettier . --write & npx eslint . ",
+    "eslint": "npx eslint . ",
     "synth": "cdk synth --all --profile moje",
-    "deploy": "cdk deploy --all --profile moje"
+    "deploy": "cdk deploy --all --profile moje --outputs-file cdk-deploy-outputs.json"
   },
   "author": "",
   "license": "ISC",
@@ -28,6 +29,7 @@
     "packages/utils"
   ],
   "dependencies": {
+    "@aws-sdk/client-cognito-identity-provider": "^3.651.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "prettier": "^3.3.3",

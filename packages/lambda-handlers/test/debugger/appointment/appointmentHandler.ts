@@ -1,4 +1,4 @@
-import { handler } from '../src/appointmentHandler';
+import { handler } from '../../../src/appointment/appointmentHandler';
 
 const response = handler(
   {

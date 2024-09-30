@@ -1,0 +1,12 @@
+import { handler } from '../../../src/authorisation/signUpHandler';
+
+const response = handler(
+  {
+    httpMethod: 'GET',
+    body: "{\"password\": \"Pa$$w0rd\", \"email\": \"kpilarski21@gmail.com\"}"
+  } as any,
+  {} as any
+);
+
+console.log('response: ', JSON.stringify(response));
+ 
