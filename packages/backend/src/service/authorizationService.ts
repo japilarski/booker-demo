@@ -29,8 +29,7 @@ export class AuthorizationService {
   }
 
   public async logIn(authRequest: AuthorizationRequest): Promise<InitiateAuthCommandOutput> {
-    console.log('servvice');
-    const response = await this.cognito.send(
+    return await this.cognito.send(
       new InitiateAuthCommand({
         ClientId: this.clientId,
         AuthFlow: AuthFlowType.USER_PASSWORD_AUTH,
@@ -40,7 +39,5 @@ export class AuthorizationService {
         },
       })
     );
-    console.log(response);
-    return response;
   }
 }

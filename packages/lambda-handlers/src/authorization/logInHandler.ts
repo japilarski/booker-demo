@@ -8,15 +8,8 @@ export const handler = async (event: APIGatewayEvent, context: Context): Promise
     const authorizationController = new AuthorizationController(cognito);
     return await authorizationController.logIn(event);
   } catch (error) {
-    console.log('jest problem');
-    if (error instanceof Error) {
-      return {
-        statusCode: 400,
-        body: 'Unexpected LoginHandler error.  ' + error.message,
-      };
-    }
     return {
-      statusCode: 500,
+      statusCode: 400,
       body: 'Unexpected LoginHandler error. ' + JSON.stringify(error),
     };
   }
