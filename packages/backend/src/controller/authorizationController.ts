@@ -29,10 +29,11 @@ export class AuthorizationController {
     const authRequest = parseJSON<AuthorizationRequest>(event.body ?? '');
     this.authorizationValidator.validate(authRequest);
 
-    const response = await this.authorizationService.logIn(authRequest);
+    const authenticationResult = await this.authorizationService.logIn(authRequest);
+
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: 'Logged in successfully!', response }),
+      body: JSON.stringify({ message: 'Logged in successfully!', authenticationResult }),
     };
   }
 }

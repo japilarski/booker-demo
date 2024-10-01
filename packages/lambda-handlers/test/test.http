@@ -1,8 +1,9 @@
 @url = https://47sxtj1lzb.execute-api.eu-west-1.amazonaws.com/prod/
-# @token =
+@token = eyJraWQiOiJTalluVXNoTnVwZEwzbWZZUWxWTnZhaUhSOWpYZGtZZitnNmd0WU9va25jPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI4Mjc1ZDRkNC1hMDYxLTcwOTYtYWYyMi1lZDIxNmE4YzBmYzMiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5ldS13ZXN0LTEuYW1hem9uYXdzLmNvbVwvZXUtd2VzdC0xX0YzamdwbHRVTCIsImNvZ25pdG86dXNlcm5hbWUiOiI4Mjc1ZDRkNC1hMDYxLTcwOTYtYWYyMi1lZDIxNmE4YzBmYzMiLCJvcmlnaW5fanRpIjoiN2I5YmNmN2EtYzlhYS00MGRiLTlkZjQtNjBhN2Q2NTY0NGRkIiwiYXVkIjoiNjNhZ2E1OWk5bXRqOGplYWgwMmtmaTgwdXAiLCJldmVudF9pZCI6IjA1Yjc3NDFhLWI3MDItNDUwNS04NDEwLWQ4OWYxZDhmZDllZiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzI3Nzc1MDgxLCJleHAiOjE3Mjc3Nzg2ODEsImlhdCI6MTcyNzc3NTA4MSwianRpIjoiYTRlOWNjNmMtOTdlZS00OGZjLWI5MTItOWU2YTVlYmNiZDgyIiwiZW1haWwiOiJmZmVlb21yc3BteHhmbGR1eWRAbmJtYmIuY29tIn0.X9ziKIyp_YNsdHAfTeYY6QsGpVN0G3EE-6i01_yTLBaPUw8Y-pV8r-fCTeUpsXrlYy5FLwc5BtcPwgZqRa6QnNHhlGpo_DoP2o-B_fE0tB-HnYXXa4ZecXgightlXzbLTJTJMu1GRIAYwXcIeGlweN5BN2K1J47NgF62ulMcdJzC9DF8FnCSQIzo1vI559M5aQFwTIccLGovVONh1oUiX2WaXqmpWtiVwSyqwgkE5WNjb6wno3NMjxqOoR7M0WwFe13J4U8cL241kxqYlWu3XKXNzHNM-MWTWC5QIa99y4LRrgERPm_D02kRVg8W-rq6vdfGsXcjq9rMr2ETfQ68dA
+
 
 GET {{url}}/appointment
-# Authorization: {{token}}
+Authorization: Bearer {{token}}
 ###
 
 POST {{url}}/appointment
@@ -45,7 +46,7 @@ POST {{url}}/log-in
 content-type: application/json
 
 {  
-   "email": "qwlwzkdxfwjnoyqogz@hthlm.com",
+   "email": "ffeeomrspmxxflduyd@nbmbb.com",
    "password": "Pa$$w0rd"
 }
 ###

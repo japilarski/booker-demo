@@ -2,7 +2,7 @@ import {
   AuthFlowType,
   CognitoIdentityProviderClient,
   InitiateAuthCommand,
-  InitiateAuthCommandOutput,
+  AuthenticationResultType,
   SignUpCommand,
   SignUpCommandOutput,
 } from '@aws-sdk/client-cognito-identity-provider';
@@ -28,8 +28,8 @@ export class AuthorizationService {
     );
   }
 
-  public async logIn(authRequest: AuthorizationRequest): Promise<InitiateAuthCommandOutput> {
-    return await this.cognito.send(
+  public async logIn(authRequest: AuthorizationRequest): Promise<AuthenticationResultType> {
+    const response = await this.cognito.send(
       new InitiateAuthCommand({
         ClientId: this.clientId,
         AuthFlow: AuthFlowType.USER_PASSWORD_AUTH,
@@ -39,5 +39,9 @@ export class AuthorizationService {
         },
       })
     );
+
+    const authenticationResult = response.AuthenticationResult;
+    if (!authenticationResult) throw new Error('Failed to log in!');
+    return authenticationResult;
   }
 }

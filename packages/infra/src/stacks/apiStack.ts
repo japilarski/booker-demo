@@ -22,11 +22,11 @@ export class ApiStack extends Stack {
 
     const bookerApi = new RestApi(this, 'BookerApi');
 
-    const authoriserOptions = this.createAuthoriser(bookerApi, props.userPool);
-    this.addResource(bookerApi, props, authoriserOptions);
+    const authorizerOptions = this.createAuthorizer(bookerApi, props.userPool);
+    this.addResource(bookerApi, props, authorizerOptions);
   }
 
-  public createAuthoriser(api: RestApi, userPool: IUserPool): MethodOptions {
+  public createAuthorizer(api: RestApi, userPool: IUserPool): MethodOptions {
     const authorizer = new CognitoUserPoolsAuthorizer(this, 'SpacesApiAuthorizer', {
       cognitoUserPools: [userPool],
       identitySource: 'method.request.header.Authorization',
@@ -41,12 +41,12 @@ export class ApiStack extends Stack {
     };
   }
 
-  public addResource(api: RestApi, props: ApiStackProps, authoriserOptions: MethodOptions) {
+  public addResource(api: RestApi, props: ApiStackProps, authorizerOptions: MethodOptions) {
     const appointmentResource = api.root.addResource('appointment');
-    appointmentResource.addMethod('GET', props.appointmentLambdaIntegration, authoriserOptions);
-    appointmentResource.addMethod('POST', props.appointmentLambdaIntegration, authoriserOptions);
-    appointmentResource.addMethod('PUT', props.appointmentLambdaIntegration, authoriserOptions);
-    appointmentResource.addMethod('DELETE', props.appointmentLambdaIntegration, authoriserOptions);
+    appointmentResource.addMethod('GET', props.appointmentLambdaIntegration, authorizerOptions);
+    appointmentResource.addMethod('POST', props.appointmentLambdaIntegration, authorizerOptions);
+    appointmentResource.addMethod('PUT', props.appointmentLambdaIntegration, authorizerOptions);
+    appointmentResource.addMethod('DELETE', props.appointmentLambdaIntegration, authorizerOptions);
 
     const logInResources = api.root.addResource('log-in');
     logInResources.addMethod('POST', props.logInLambdaIntegration);
