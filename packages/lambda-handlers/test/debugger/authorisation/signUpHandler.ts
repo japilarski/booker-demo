@@ -1,12 +1,11 @@
-import { handler } from '../../../src/authorisation/signUpHandler';
+import { handler } from '../../../src/authorization/signUpHandler';
 
 const response = handler(
   {
     httpMethod: 'GET',
-    body: "{\"password\": \"Pa$$w0rd\", \"email\": \"kpilarski21@gmail.com\"}"
+    body: '{"password": "Pa$$w0rd", "email": "kpilarski21@gmail.com"}',
   } as any,
   {} as any
 );
 
 console.log('response: ', JSON.stringify(response));
- 

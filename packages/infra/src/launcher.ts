@@ -18,7 +18,7 @@ const lambdaStack = new LambdaStack(app, 'LambdaStack', {
 
 new ApiStack(app, 'ApiStack', {
   appointmentLambdaIntegration: lambdaStack.appointmentLambdaIntegration,
-  signUpLambdaIntegtaion: lambdaStack.signUpLambdaIntegtaion,
-  logInLambdaIntegtaion: lambdaStack.logInLambdaIntegtaion,
+  signUpLambdaIntegration: lambdaStack.signUpLambdaIntegration,
+  logInLambdaIntegration: lambdaStack.logInLambdaIntegration,
   userPool: authStack.userPool,
 });

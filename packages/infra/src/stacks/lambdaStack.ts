@@ -16,8 +16,8 @@ interface LambdaStackProps extends StackProps {
 
 export class LambdaStack extends Stack {
   public appointmentLambdaIntegration!: LambdaIntegration;
-  public signUpLambdaIntegtaion!: LambdaIntegration;
-  public logInLambdaIntegtaion!: LambdaIntegration;
+  public signUpLambdaIntegration!: LambdaIntegration;
+  public logInLambdaIntegration!: LambdaIntegration;
 
   constructor(scope: Construct, id: string, props: LambdaStackProps) {
     super(scope, id, props);
@@ -28,10 +28,10 @@ export class LambdaStack extends Stack {
   }
 
   private createSignUpLambda(props: LambdaStackProps) {
-    const singUpLambda = new NodejsFunction(this, 'signInLambda', {
+    const singUpLambda = new NodejsFunction(this, 'signUpLambda', {
       runtime: Runtime.NODEJS_20_X,
       handler: 'handler',
-      entry: join(__dirname, '..', '..', '..', 'lambda-handlers', 'src', 'authorisation', 'signUpHandler.ts'),
+      entry: join(__dirname, '..', '..', '..', 'lambda-handlers', 'src', 'authorization', 'signUpHandler.ts'),
       environment: {
         CLIENT_ID: props.userPoolClient.userPoolClientId,
       },
@@ -45,14 +45,14 @@ export class LambdaStack extends Stack {
       })
     );
 
-    this.signUpLambdaIntegtaion = new LambdaIntegration(singUpLambda);
+    this.signUpLambdaIntegration = new LambdaIntegration(singUpLambda);
   }
 
   private createLogInLambda(props: LambdaStackProps) {
     const logInLambda = new NodejsFunction(this, 'logInLambda', {
       runtime: Runtime.NODEJS_20_X,
       handler: 'handler',
-      entry: join(__dirname, '..', '..', '..', 'lambda-handlers', 'src', 'authorisation', 'logInHandler.ts'),
+      entry: join(__dirname, '..', '..', '..', 'lambda-handlers', 'src', 'authorization', 'logInHandler.ts'),
       environment: {
         CLIENT_ID: props.userPoolClient.userPoolClientId,
       },
@@ -66,7 +66,7 @@ export class LambdaStack extends Stack {
       })
     );
 
-    this.logInLambdaIntegtaion = new LambdaIntegration(logInLambda);
+    this.logInLambdaIntegration = new LambdaIntegration(logInLambda);
   }
 
   private createAppointmentLambda(props: LambdaStackProps) {

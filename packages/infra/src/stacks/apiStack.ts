@@ -11,8 +11,8 @@ import { IUserPool } from 'aws-cdk-lib/aws-cognito';
 
 interface ApiStackProps extends StackProps {
   appointmentLambdaIntegration: LambdaIntegration;
-  signUpLambdaIntegtaion: LambdaIntegration;
-  logInLambdaIntegtaion: LambdaIntegration;
+  signUpLambdaIntegration: LambdaIntegration;
+  logInLambdaIntegration: LambdaIntegration;
   userPool: IUserPool;
 }
 
@@ -49,9 +49,9 @@ export class ApiStack extends Stack {
     appointmentResource.addMethod('DELETE', props.appointmentLambdaIntegration, authoriserOptions);
 
     const logInResources = api.root.addResource('log-in');
-    logInResources.addMethod('POST', props.logInLambdaIntegtaion);
+    logInResources.addMethod('POST', props.logInLambdaIntegration);
 
     const signUpResources = api.root.addResource('sign-up');
-    signUpResources.addMethod('POST', props.signUpLambdaIntegtaion);
+    signUpResources.addMethod('POST', props.signUpLambdaIntegration);
   }
 }

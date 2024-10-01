@@ -1,4 +1,4 @@
-import { AuthorisationController, RequiredFieldError } from '@booker-demo/backend';
+import { AuthorizationController, RequiredFieldError } from '@booker-demo/backend';
 import { APIGatewayEvent, APIGatewayProxyResult, Context } from 'aws-lambda';
 import { CognitoIdentityProviderClient } from '@aws-sdk/client-cognito-identity-provider';
 
@@ -11,10 +11,10 @@ export const handler = async (event: APIGatewayEvent, context: Context): Promise
     };
   }
 
-  const authorisationController = new AuthorisationController(cognito);
+  const authorizationController = new AuthorizationController(cognito);
 
   try {
-    return await authorisationController.logIn(event);
+    return await authorizationController.logIn(event);
   } catch (error) {
     if (error instanceof Error) {
       return {
