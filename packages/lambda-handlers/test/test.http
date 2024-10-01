@@ -1,4 +1,4 @@
-@url = https://xmd3j6v9lb.execute-api.eu-west-1.amazonaws.com/prod/
+@url = https://47sxtj1lzb.execute-api.eu-west-1.amazonaws.com/prod/
 # @token =
 
 GET {{url}}/appointment
@@ -36,7 +36,7 @@ POST {{url}}/sign-up
 content-type: application/json
 
 {  
-   "email": "kpilarski21@gmail.com",
+   "email": "qwlwzkdxfwjnoyqogz@hthlm.com",
    "password": "Pa$$w0rd"
 }
 ###
@@ -45,7 +45,7 @@ POST {{url}}/log-in
 content-type: application/json
 
 {  
-   "email": "kpilarski21@gmail.com",
+   "email": "qwlwzkdxfwjnoyqogz@hthlm.com",
    "password": "Pa$$w0rd"
 }
 ###

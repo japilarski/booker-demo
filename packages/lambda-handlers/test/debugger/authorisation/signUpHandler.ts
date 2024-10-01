@@ -1,6 +1,6 @@
 import { handler } from '../../../src/authorization/signUpHandler';
 
-const response = handler(
+const response = await handler(
   {
     httpMethod: 'GET',
     body: '{"password": "Pa$$w0rd", "email": "kpilarski21@gmail.com"}',

@@ -1,14 +1,11 @@
 import { handler } from '../../../src/authorization/logInHandler';
 
-const response = handler(
+const response = await handler(
   {
     httpMethod: 'GET',
-    body: {
-      email: 'kpilarski21@gmail.com',
-      password: 'Pa$$w0rd',
-    },
+    body: '{\"password\": \"Pa$$w0rd\", \"email\": \"qwlwzkdxfwjnoyqogz@hthlm.com\"}',
   } as any,
   {} as any
 );
 
-console.log(response);
+console.log('final response: ', JSON.stringify(response));
