@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "frontend": "lerna run dev",
     "clean": "prettier . --write & npx eslint . ",
     "eslint": "npx eslint . ",
     "synth": "cdk synth --all --profile moje",
